@@ -127,3 +127,4 @@ dmypy.json
 # Custom
 praw.ini
 .gitignore
+subreddits.txt
