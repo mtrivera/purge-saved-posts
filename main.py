@@ -26,7 +26,12 @@ def read_file(r, file):
             line = infile.readline()
     return dict
 
-
+def get_saved_post_count(r, sub):
+    counts = []
+    for post in r.user.me().saved(limit=None):
+        if post.subreddit == sub:
+            counts.append(post)
+    return len(counts)
 
 def main():
     if not is_connected():
@@ -37,7 +42,7 @@ def main():
     reddit = praw.Reddit("purge")
 
     subs = read_file(reddit, "subreddits.txt")
-    print(subs)
+
 
 
 main()
